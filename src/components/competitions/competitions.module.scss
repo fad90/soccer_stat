@@ -1,0 +1,31 @@
+.search_form {
+    min-height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.search_bar {
+    width: 40%;
+    border: 1px solid #485461;
+    padding: 4px;
+    margin-right: 10px;
+    border-radius: 3px;
+    outline: none;
+}
+
+.search_button {
+    background-color: #485461;
+    border: none;
+    padding: 6px 20px;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.competitions {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

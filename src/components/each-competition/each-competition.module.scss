@@ -1,0 +1,21 @@
+.competition {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 200px;
+  height: 80px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px #485461;
+  border: 1px solid #485461;
+  cursor: pointer;
+  margin: 5px;
+  &:hover {
+    background-color: #e7e7e7;
+  }
+}
+
+.name {
+  margin-bottom: 5px;
+}
