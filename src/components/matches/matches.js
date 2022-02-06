@@ -40,7 +40,7 @@ export default function Matches() {
   const getFilteredMatches = async () => {
     const url = `https://api.football-data.org/v2/matches?dateFrom=${newStartDate}&dateTo=${newEndDate}`;
     const filteredResponse = await fetch(url, {
-      headers: { "X-Auth-Token": "1d1dfaa89dd54c15bcef0e7fae063627" },
+      headers: { "X-Auth-Token": `${process.env.REACT_APP_API_TOKEN}` },
       dataType: "json",
       type: "GET",
     });

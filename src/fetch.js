@@ -2,7 +2,7 @@ const apiBase = "https://api.football-data.org/v2";
 
 export async function getResource(url) {
   const res = await fetch(`${apiBase}${url}`, {
-    headers: { "X-Auth-Token": "1d1dfaa89dd54c15bcef0e7fae063627" },
+    headers: { "X-Auth-Token": `${process.env.REACT_APP_API_TOKEN}` },
     dataType: "json",
     type: "GET",
   });
@@ -21,19 +21,3 @@ export function getAllTeams() {
 export function getAllMatches() {
   return getResource(`/matches`);
 }
-
-// const stat = new FootballData();
-
-// stat.getAllCompetitions().then((body) => {
-//   console.log(body);
-// });
-
-//   const host = 'https://api.football-data.org/';
-//   const version = 'v2';
-//   const url = `${host}${version}`;
-//   return console.log(url);
-//   const response = await fetch(url, {
-//     headers: { "X-Auth-Token": "1d1dfaa89dd54c15bcef0e7fae063627" },
-//     dataType: "json",
-//     type: "GET",
-//   });
