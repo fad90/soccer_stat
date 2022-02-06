@@ -2,24 +2,17 @@ import React from "react";
 import { useState, useEffect } from "react";
 import styles from "./competitions.module.scss";
 import EachCompetition from "../each-competition";
+import * as getFunctions from "../../fetch";
 
 export default function Competitions() {
   const [competitions, setCompetitions] = useState([]);
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    getCompetitions("https://api.football-data.org/v2/competitions");
+    getFunctions.getAllCompetitions().then((data) => {
+      setCompetitions(data.competitions);
+    })
   }, []);
-
-  const getCompetitions = async (url) => {
-    const response = await fetch(url, {
-      headers: { "X-Auth-Token": "1d1dfaa89dd54c15bcef0e7fae063627" },
-      dataType: "json",
-      type: "GET",
-    });
-    const data = await response.json();
-    setCompetitions(data.competitions);
-  };
 
   const changeHandler = (e) => {
     setValue(e.target.value);

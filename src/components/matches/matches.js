@@ -4,6 +4,7 @@ import styles from "./matches.module.scss";
 import EachMatch from "../each-match";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import * as getFunctions from "../../fetch";
 
 export default function Matches() {
   const [matches, setMatches] = useState([]);
@@ -11,19 +12,12 @@ export default function Matches() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
 
-  useEffect(() => {
-    getMatches("https://api.football-data.org/v2/matches");
-  }, []);
 
-  const getMatches = async (url) => {
-    const response = await fetch(url, {
-      headers: { "X-Auth-Token": "1d1dfaa89dd54c15bcef0e7fae063627" },
-      dataType: "json",
-      type: "GET",
+  useEffect(() => {
+    getFunctions.getAllMatches().then((data) => {
+      setMatches(data.matches);
     });
-    const data = await response.json();
-    setMatches(data.matches);
-  };
+  }, []);
 
   const onChange = (dates) => {
     const [start, end] = dates;
@@ -44,7 +38,6 @@ export default function Matches() {
   const newEndDate = `${arrayEndDate[2]}-${arrayEndDate[1]}-${arrayEndDate[0]}`
 
   const getFilteredMatches = async () => {
-    
     const url = `https://api.football-data.org/v2/matches?dateFrom=${newStartDate}&dateTo=${newEndDate}`;
     const filteredResponse = await fetch(url, {
       headers: { "X-Auth-Token": "1d1dfaa89dd54c15bcef0e7fae063627" },

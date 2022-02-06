@@ -2,24 +2,17 @@ import React from "react";
 import { useState, useEffect } from "react";
 import styles from "./teams.module.scss";
 import EachTeam from "../each-team";
+import * as getFunctions from "../../fetch";
 
 export default function Teams() {
   const [teams, setTeams] = useState([]);
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    getTeams("https://api.football-data.org/v2/teams");
-  }, []);
-
-  const getTeams = async (url) => {
-    const response = await fetch(url, {
-      headers: { "X-Auth-Token": "1d1dfaa89dd54c15bcef0e7fae063627" },
-      dataType: "json",
-      type: "GET",
+    getFunctions.getAllTeams().then((data) => {
+      setTeams(data.teams);
     });
-    const data = await response.json();
-    setTeams(data.teams);
-  };
+  }, []);
 
   const changeHandler = (e) => {
     setValue(e.target.value);
