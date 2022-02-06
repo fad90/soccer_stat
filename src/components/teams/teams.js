@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import styles from "./teams.module.scss";
 import EachTeam from "../each-team";
 import * as getFunctions from "../../fetch";
+import { Link } from "react-router-dom";
 
 export default function Teams() {
   const [teams, setTeams] = useState([]);
@@ -11,6 +12,7 @@ export default function Teams() {
   useEffect(() => {
     getFunctions.getAllTeams().then((data) => {
       setTeams(data.teams);
+      console.log(data.teams);
     });
   }, []);
 
@@ -39,19 +41,24 @@ export default function Teams() {
       </form>
       <div className={styles.teams}>
         {teams.map((team) => (
-          <EachTeam
+          <Link
             key={team.id}
-            name={team.name}
-            logo={team.crestUrl}
-            tla={team.tla}
-            founded={team.founded}
-            clubColors={team.clubColors}
-            venue={team.venue}
-            address={team.address}
-            website={team.website}
-            email={team.email}
-            phone={team.phone}
-          />
+            to={`/teams/${team.id}`}
+            className={styles.team_link}
+          >
+            <EachTeam
+              name={team.name}
+              logo={team.crestUrl}
+              tla={team.tla}
+              founded={team.founded}
+              clubColors={team.clubColors}
+              venue={team.venue}
+              address={team.address}
+              website={team.website}
+              email={team.email}
+              phone={team.phone}
+            />
+          </Link>
         ))}
       </div>
     </>

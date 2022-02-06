@@ -1,5 +1,34 @@
-import React from 'react';
+import React from "react";
+import styles from "./home.module.scss";
 
 export default function Home() {
-  return <div>THIS IS JUST HOME PAGE</div>;
+  return (
+    <div className={styles.home}>
+      <div className={styles.wrapper}>
+        <p className={styles.text}>
+          Данный сайт предоставляет информацию о статистике ведущих европейских
+          турниров по футболу
+        </p>
+        <p className={styles.text}>
+          Статистика собрана с помощью стороннего API:{" "}
+        </p>
+        <a href="https://www.football-data.org/">
+          https://www.football-data.org/
+        </a>
+        <p className={styles.text}>
+          Текущий токен, полученный при регистрации на сайте{" "}
+          <span>"1d1dfaa89dd54c15bcef0e7fae063627"</span>
+        </p>
+        <p className={styles.text}>
+          <span>Выполнил:</span> Фадеев Дмитрий
+        </p>
+        <p className={styles.text}>
+          <span>Номер:</span> 8 (905) 183-05-43
+        </p>
+        <p className={styles.text}>
+          <span>Email:</span> fadeev2990@gmail.com
+        </p>
+      </div>
+    </div>
+  );
 }

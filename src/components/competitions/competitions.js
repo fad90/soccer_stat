@@ -11,7 +11,7 @@ export default function Competitions() {
   useEffect(() => {
     getFunctions.getAllCompetitions().then((data) => {
       setCompetitions(data.competitions);
-    })
+    });
   }, []);
 
   const changeHandler = (e) => {

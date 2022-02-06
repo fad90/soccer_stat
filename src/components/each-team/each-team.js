@@ -36,10 +36,7 @@ export default function EachTeam({
           <span className={styles.title}>Address:</span> {address}
         </p>
         <p className={styles.text}>
-          <span className={styles.title}>Website:</span>{" "}
-          <a href={website} className={styles.website}>
-            {website}
-          </a>
+          <span className={styles.title}>Website:</span> {website}
         </p>
         <p className={styles.text}>
           <span className={styles.title}>Email:</span> {email}

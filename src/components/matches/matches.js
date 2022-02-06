@@ -12,7 +12,6 @@ export default function Matches() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
 
-
   useEffect(() => {
     getFunctions.getAllMatches().then((data) => {
       setMatches(data.matches);
@@ -29,13 +28,17 @@ export default function Matches() {
     year: "numeric",
     month: "numeric",
     day: "numeric",
-  }
-  
-  const arrayStartDate = new Date(startDate).toLocaleString("ru", dateOptions).split('.');
-  const newStartDate = `${arrayStartDate[2]}-${arrayStartDate[1]}-${arrayStartDate[0]}`
+  };
 
-  const arrayEndDate = new Date(endDate).toLocaleString("ru", dateOptions).split('.');
-  const newEndDate = `${arrayEndDate[2]}-${arrayEndDate[1]}-${arrayEndDate[0]}`
+  const arrayStartDate = new Date(startDate)
+    .toLocaleString("ru", dateOptions)
+    .split(".");
+  const newStartDate = `${arrayStartDate[2]}-${arrayStartDate[1]}-${arrayStartDate[0]}`;
+
+  const arrayEndDate = new Date(endDate)
+    .toLocaleString("ru", dateOptions)
+    .split(".");
+  const newEndDate = `${arrayEndDate[2]}-${arrayEndDate[1]}-${arrayEndDate[0]}`;
 
   const getFilteredMatches = async () => {
     const url = `https://api.football-data.org/v2/matches?dateFrom=${newStartDate}&dateTo=${newEndDate}`;
@@ -45,7 +48,7 @@ export default function Matches() {
       type: "GET",
     });
     const data = await filteredResponse.json();
-    setMatches(data.matches)
+    setMatches(data.matches);
   };
 
   return (

@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./each-match.module.scss";
+import styles from "./team-matches.module.scss";
 
-export default function EachMatch({
+export default function TeamMatches({
   homeTeam,
   awayTeam,
   competition,
