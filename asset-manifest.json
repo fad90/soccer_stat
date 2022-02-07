@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/soccer_stat/static/css/main.6295a98e.css",
+    "main.js": "/soccer_stat/static/js/main.032f1a98.js",
+    "index.html": "/soccer_stat/index.html",
+    "main.6295a98e.css.map": "/soccer_stat/static/css/main.6295a98e.css.map",
+    "main.032f1a98.js.map": "/soccer_stat/static/js/main.032f1a98.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6295a98e.css",
+    "static/js/main.032f1a98.js"
+  ]
+}
