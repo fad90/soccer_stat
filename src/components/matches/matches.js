@@ -8,14 +8,18 @@ import * as getFunctions from "../../fetch";
 
 export default function Matches() {
   const [matches, setMatches] = useState([]);
-  const [value, setValue] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
 
   useEffect(() => {
-    getFunctions.getAllMatches().then((data) => {
-      setMatches(data.matches);
-    });
+    getFunctions
+      .getAllMatches()
+      .then((data) => {
+        setMatches(data.matches);
+      })
+      .catch((err) => {
+        console.error("Could not fetch", err);
+      });
   }, []);
 
   const onChange = (dates) => {

@@ -19,7 +19,6 @@ export default function SingleTeam() {
       .then((res) => res.json())
       .then((data) => {
         setClub(data);
-        console.log(data);
       });
   }, []);
 

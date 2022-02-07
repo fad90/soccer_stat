@@ -9,9 +9,14 @@ export default function Competitions() {
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    getFunctions.getAllCompetitions().then((data) => {
-      setCompetitions(data.competitions);
-    });
+    getFunctions
+      .getAllCompetitions()
+      .then((data) => {
+        setCompetitions(data.competitions);
+      })
+      .catch((err) => {
+        console.error("Could not fetch", err);
+      });
   }, []);
 
   const changeHandler = (e) => {

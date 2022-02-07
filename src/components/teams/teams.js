@@ -10,10 +10,14 @@ export default function Teams() {
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    getFunctions.getAllTeams().then((data) => {
-      setTeams(data.teams);
-      console.log(data.teams);
-    });
+    getFunctions
+      .getAllTeams()
+      .then((data) => {
+        setTeams(data.teams);
+      })
+      .catch((err) => {
+        console.error("Could not fetch", err);
+      });
   }, []);
 
   const changeHandler = (e) => {

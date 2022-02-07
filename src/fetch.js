@@ -6,12 +6,14 @@ export async function getResource(url) {
     dataType: "json",
     type: "GET",
   });
+  if (!res.ok) {
+    throw new Error(`Could not fetch ${url}` + `, received ${res.status}`);
+  }
   return await res.json();
 }
 
 export function getAllCompetitions() {
-  const result = getResource("/competitions");
-  return result;
+  return getResource("/competitions");
 }
 
 export function getAllTeams() {
@@ -21,4 +23,3 @@ export function getAllTeams() {
 export function getAllMatches() {
   return getResource("/matches");
 }
-
