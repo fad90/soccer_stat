@@ -17,7 +17,7 @@ export default function Home() {
         </a>
         <p className={styles.text}>
           Текущий токен, полученный при регистрации на сайте{" "}
-          <span>"1d1dfaa89dd54c15bcef0e7fae063627"</span>
+          <span>{process.env.REACT_APP_API_TOKEN}</span>
         </p>
         <p className={styles.text}>
           <span>Выполнил:</span> Фадеев Дмитрий

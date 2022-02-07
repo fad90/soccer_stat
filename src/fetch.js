@@ -15,9 +15,10 @@ export function getAllCompetitions() {
 }
 
 export function getAllTeams() {
-  return getResource(`/teams`);
+  return getResource("/teams");
 }
 
 export function getAllMatches() {
-  return getResource(`/matches`);
+  return getResource("/matches");
 }
+
