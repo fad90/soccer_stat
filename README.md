@@ -4,8 +4,6 @@
 
 Загрузите проект. После запустите его с помощью команды **npm start**
 
-## Github-pages: https://fad90.github.io/soccer_stat/
-
 ## Что включает в себя приложение SoccerStat?
 
 Данное приложение состоит из четырех страниц: Home, Competitions, Teams, Matches.
